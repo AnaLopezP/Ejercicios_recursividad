@@ -34,12 +34,32 @@ def preparar_frase(frase):
     frase_tabla = list(frase)
     cadena = ""
     cadena = hazcadena(frase_tabla, cadena)
-    print(cadena)
     return cadena
 
+#esta es una funcion que invierte la cadena
+def invertir_cadena(frase):
+    frase_lista = list(frase)
+    cadena_invertida = ""
+    while len(frase_lista) != 0:
+        car = frase_lista.pop()
+        cadena_invertida = cadena_invertida + car
+    print(cadena_invertida)
+    return cadena_invertida
 
-preparar_frase(frase)
+#esta es la funcion que analiza que la frase sea polindroma
+def es_polindromo(frase, frase_invertida):
+    if frase == frase_invertida:
+        return True
+    else:
+        return False
 
+    
+    
+#codigo principal
 
-
-
+frase = preparar_frase(frase)
+frase_invertida = invertir_cadena(frase)
+if es_polindromo(frase, frase_invertida) == True:
+    print("Esta frase es polindroma")
+else:
+    print("esta frase no es polindroma")
