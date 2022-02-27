@@ -34,32 +34,51 @@ def preparar_frase(frase):
     frase_tabla = list(frase)
     cadena = ""
     cadena = hazcadena(frase_tabla, cadena)
+    print(cadena)
     return cadena
 
 #esta es una funcion que invierte la cadena
-def invertir_cadena(frase):
-    frase_lista = list(frase)
-    cadena_invertida = ""
-    while len(frase_lista) != 0:
-        car = frase_lista.pop()
-        cadena_invertida = cadena_invertida + car
-    print(cadena_invertida)
-    return cadena_invertida
-
+#def invertir_cadena(frase_lista, letra):
+    
+    
 #esta es la funcion que analiza que la frase sea polindroma
-def es_polindromo(frase, frase_invertida):
-    if frase == frase_invertida:
+def es_polindromo(frase, inicio, fin):
+    if inicio >= fin:
         return True
     else:
-        return False
+        if frase[inicio] == frase[fin]:
+            result = es_polindromo(frase, inicio + 1, fin - 1)
+        else:
+            result = False
+        return result
 
-    
-    
+
+
+
 #codigo principal
-
 frase = preparar_frase(frase)
-frase_invertida = invertir_cadena(frase)
-if es_polindromo(frase, frase_invertida) == True:
+if es_polindromo(frase, 0, len(frase) - 1) == True:
     print("Esta frase es polindroma")
 else:
     print("esta frase no es polindroma")
+
+
+
+
+
+
+'''while len(frase_lista) != 0:
+        car = frase_lista.pop()
+        cadena_invertida = cadena_invertida + car
+    print(cadena_invertida)
+    return cadena_invertida'''
+
+
+'''   cadena_invertida = ""
+    letra = frase_lista.pop()
+    print(letra)
+    cadena_invertida = cadena_invertida + letra
+    print(cadena_invertida)
+    if len(frase_lista) != 0:
+        invertir_cadena(frase_lista, letra)
+    return cadena_invertida'''
