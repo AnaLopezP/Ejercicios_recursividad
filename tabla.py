@@ -3,24 +3,24 @@ clientes = [["Pepa", "25012", "25"], ["Lucio", "33006", "24"], ["Miriam", "45009
 persona = []
 
 #funcion que mira que clientes son de Toledo por su codigo postal
-def clientes_toledo(tabla, n ,cod_postal):
-    if 0 <= n < len(tabla):
-        if cod_postal in tabla[n][1]:
-            persona.append(tabla[n][0])
-            clientes_toledo(tabla, n + 1, cod_postal)
+def clientes_cod(tabla, nombre ,cod_postal):
+    if 0 <= nombre < len(tabla):
+        if cod_postal in tabla[nombre][1]:
+            persona.append(tabla[nombre][0])
+            clientes_toledo(tabla, nombre + 1, cod_postal)
         else:
-            clientes_toledo(tabla, n + 1, cod_postal)
+            clientes_toledo(tabla, nombre + 1, cod_postal)
         return persona
 
 #funcion que mira que clientes entre los 40 y los 50 años son de Madrid
-def clientes_madrid(tabla, n, cod_postal, edad_i, edad_f):
-     if 0 <= n < len(tabla):
-        if cod_postal in tabla[n][1]:
-            if edad_i <= tabla[n][2] <= edad_f:
-                persona.append(tabla[n][0])
-                clientes_madrid(tabla, n + 1, cod_postal, edad_i, edad_f)
+def clientes_cod_edad(tabla, nombre, cod_postal, edad_i, edad_f):
+     if 0 <= nombre < len(tabla):
+        if cod_postal in tabla[nombre][1]:
+            if edad_i <= tabla[nombre][2] <= edad_f:
+                persona.append(tabla[nombre][0])
+                clientes_madrid(tabla, nombre + 1, cod_postal, edad_i, edad_f)
         else:
-            clientes_madrid(tabla, n + 1, cod_postal, edad_i, edad_f)
+            clientes_madrid(tabla, nombre + 1, cod_postal, edad_i, edad_f)
         return persona
 
 #codigo principal
